@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Gado</title>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 20
+    }
+
+    #area-menu {
+      background-color: #fff;
+      /*text-align: center;*/
+      clear: both;
+      color: #2F4F4F;
+      font-size: 18px;
+      line-height: 0px;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    a {
+      text-decoration: none;
+      padding: 10px;
+
+    }
+
+    a:link,
+    a:visited {
+      color: #2F4F4F;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #0318017e;
+      background: white;
+      text-decoration: none;
+    }
+
+
+
+    #disponiveis {
+      border: 1px solid black;
+      width: 100%;
+      background-color: white;
+      text-align: center;
+      margin: auto;
+      display: none;
+      /* esconde a tabela por padrão */
+    }
+
+    #disponiveis.visible {
+      display: block;
+      /* mostra a tabela quando a classe "visible" é adicionada */
+    }
+
+
+
+
+
+
+    h1 {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      background-color: #0079C2;
+      text-align: center;
+      clear: both;
+      color: white;
+      font-size: 38px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      line-height: 20px;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    h1 img {
+      margin-top: 10px;
+      margin-left: 5%;
+      margin-right: 5%;
+      /*display: block;*/
+      /* torna a imagem um elemento de bloco */
+      /*margin: auto;*/
+      /* centraliza a imagem horizontalmente */
+      margin-bottom: 10px;
+      /* adiciona uma margem inferior para separar a imagem do texto */
+    }
+
+    /*h1 div {
+      display: block;
+    }*/
+
+    h2 {
+      background-color: #006400;
+
+      text-align: center;
+      color: white;
+      border-radius: 0px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+
+
+    }
+
+    h3 {
+      background-color: white;
+      text-align: center;
+      color: #348344;
+      font-size: 0px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      line-height: 0px;
+      margin-bottom: 20px;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    h4 {
+      background-color: #DCDCDC;
+      line-height: 40px;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label,
+    input [type="date"] {
+      display: block;
+      margin-bottom: 0px;
+      text-align: center;
+      padding: 0px;
+      color: white;
+    }
+
+    #dataConsulta {
+      border-radius: 6px;
+    }
+
+
+    form [type="number"],
+    form [type="text"],
+    form [type="date"],
+    select {
+      display: block;
+      margin: auto;
+      margin-bottom: 15px;
+      width: 55%;
+      border-radius: 6px;
+    }
+
+
+
+
+    button {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      background: white;
+      border-radius: 8px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    #btnConsultar {
+      margin-top: 15px;
+
+    }
+
+    .btn_edit {
+      background-color: #FFD700;
+      color: black;
+      margin-right: 4%;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      margin-top: 3%;
+      margin-bottom: 3%;
+    }
+
+    .btn_delete {
+      background-color: #FF4500;
+      color: white;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+
+
+    table {
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+
+    table th,
+    table tr,
+    table td {
+      border: 1px solid black;
+
+      text-align: center;
+      margin: auto;
+
+    }
+
+    th {
+      background-color: #FFFFF0;
+
+    }
+
+    tr:nth-child(even) {
+      background: #FFFFF0;
+    }
+
+    .filtro {
+      width: 100%;
+
+    }
+
+
+    #txtColuna1 {
+      width: 90%;
+    }
+
+    #txtColuna2 {
+      width: 90%;
+    }
+
+    #txtColuna3 {
+      width: 90%;
+    }
+
+    #txtColuna4 {
+      width: 90%;
+    }
+
+    #txtColuna5 {
+      width: 90%;
+    }
+
+    #txtColuna6 {
+      width: 90%;
+    }
+
+    h5 {
+      background-color: #223b48;
+      border: 1px solid black;
+      border-radius: 10px;
+      vertical-align: center;
+      color: white;
+      width: 100%;
+      text-align: center;
+      text-align: center;
+      font-size: 25px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      line-height: 25px;
+      margin-bottom: 5px;
+    }
+
+    .ticker {
+      line-height: 15px;
+      overflow: hidden;
+      display: flex;
+      width: 100vw;
+    }
+
+    .ticker__list {
+      display: flex;
+      margin-top: 0px;
+      animation: ticker 50s infinite linear;
+      text-align: center;
+    }
+
+    .ticker:hover .ticker__list {
+      animation-play-state: infinite linear;
+    }
+
+    .ticker__item {
+      border: 1px solid #e9e9e9;
+      margin-right: 0px;
+      background-color: #fdfdfd;
+      width: 300px
+    }
+
+    @keyframes ticker {
+      100% {
+        transform: translateX(-100vw);
+        /*try changing this to -100vw*/
+      }
+    }
+
+    span {
+      color: #424242;
+    }
+
+    #ww_6170df6b3e605 {
+      text-align: center;
+    }
+
+    #cotacao {
+      text-align: center;
+    }
+
+    #cotacoes {
+      border: 0px;
+    }
+
+    h7 {
+      height: 40px;
+      width: 95px;
+      background: #223b48;
+      color: #223b48;
+      position: absolute;
+    }
+
+    h8 {
+
+      height: 40px;
+      width: 95px;
+      background: #223b48;
+      color: #223b48;
+      position: absolute;
+      right: 0;
+    }
+
+    h9 {
+      font-size: 21px;
+    }
+
+    .container {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      /*gap: 1.5%;*/
+      padding: 20px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .coluna-esquerda {
+
+      display: flex;
+      flex-direction: column;
+      width: 20%;
+      margin-right: 15px;
+      /*background-color: #FFD700;
+      /* Ajuste conforme necessário */
+    }
+
+    .coluna-direita {
+
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 40%;
+      margin-left: 25px;
+    }
+
+    .div1,
+    .div2 {
+      border: 1px solid black;
+      width: 100%;
+      padding: 0px;
+      max-width: 400px;
+      /*box-sizing: border-box;*/
+      margin: 0 auto 15px auto;
+      /* centraliza e espaça verticalmente */
+      /*margin-bottom: 15px;
+      /*margin-right: 0.5%;*/
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .div3,
+    .div4 {
+      /*border: 1px solid black;*/
+      width: 100%;
+      padding: 0px;
+
+      /*box-sizing: border-box;*/
+      margin: auto;
+      margin-top: 0px;
+      /*margin-right: 0.5%;*/
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    /*.div2 {
+      border: 1px solid black;
+      width: 450px;
+      padding: 0px;
+
+      /* box-sizing: border-box;*/
+    /*margin: auto;
+      margin-bottom: 15px;
+      /* margin-left: 0.5%;*/
+    /*border-radius: 30px;
+      text-align: center;
+    }*/
+
+    /*h1 {
+  background-image: url('/images/nelores.jpg');
+  background-size: cover;
+  }*/
+
+    #meuTexto {
+      margin-top: 0px;
+      font-size: 19px;
+      /* Tamanho inicial da fonte */
+    }
+
+    /*#aumentarFonte {
+      color: white;
+      font-size: 17px;
+      bottom: 84%;
+      border: 0px;
+      background-color: #0079C2;
+      ;
+      position: absolute;
+      right: 12%;
+    }
+
+    #diminuirFonte {
+      color: white;
+      font-size: 17px;
+      bottom: 84%;
+      border: 0px;
+      background-color: #0079C2;
+      position: absolute;
+      right: 10%;
+    }*/
+
+    br {
+      margin-top: 15px;
+    }
+
+    #grafico,
+    #graficoUmidade {
+      margin: auto;
+      text-align: center;
+
+    }
+
+    p {
+
+      margin-top: 5%;
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.75rem);
+    }
+
+    /*#monitoramento {
+      padding: 20px;
+      font-size: 40px;
+      text-align: center;
+    }*/
+
+    .controle-duplo {
+      display: flex;
+      gap: 4.5%;
+      /* espaço entre os blocos */
+      justify-content: flex-start;
+      /* ou center */
+    }
+
+    .controle-individual {
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: solid black 1px;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* centraliza texto e botão */
+    }
+
+    .desligado {
+      width: 160px;
+      height: 50px;
+      background-color: #de3c2f;
+      color: white;
+      border: 3px solid #ff9999;
+      /*padding: 10px 20px;*/
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .ligado {
+      height: 50px;
+      width: 160px;
+      background-color: green;
+      color: white;
+      border: 3px solid #3CB371;
+      /*padding: 10px 20px;*/
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+
+      #monitoramento {
+        font-size: 1.75rem;
+        /* ~28px */
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .coluna-esquerda,
+      .coluna-direita {
+        width: 100%;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.25rem;
+        /* ~20px */
+      }
+
+      .desligado,
+      .ligado {
+        font-size: 0.875rem;
+        /* ~14px */
+        width: 100%;
+      }
+
+      .controle-individual {
+        padding: 0.75rem;
+      }
+    }
+
+    #titulo {
+      /*border: 1px solid black;*/
+      /*padding-left: 50px;
+      padding-right: 50px;*/
+      align-items: center;
+      font-size: 25px;
+      text-align: center;
+      margin-top: 50px;
+      width: 83%;
+      max-width: 650px;
+      border-radius: 25px;
+      padding-top: 0px;
+      padding-bottom: 30px;
+    }
+
+    .quadro-alerta {
+      /*background-color: #FFF8DC;
+      /* amarelo suave */
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+
+
+    .status-texto {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .status-detalhes {
+      font-size: 16px;
+      color: #000000;
+    }
+
+    .legenda-status {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .item-legenda {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cor-legenda {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+
+    .ideal {
+      background-color: #4CAF50;
+    }
+
+    .razoavel {
+      background-color: #FFC107;
+    }
+
+    .critica {
+      background-color: #F44336;
+    }
+
+    .status-ideal {
+      background-color: #4CAF50;
+      border: 2px solid #4CAF50;
+    }
+
+    .status-razoavel {
+      background-color: #FFC107;
+      border: 2px solid #FFC107;
+    }
+
+    .status-critica {
+      background-color: #F44336;
+      border: 2px solid #F44336;
+    }
+
+
+    @keyframes piscar {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .piscar {
+      animation: piscar 1s infinite;
+    }
+
+    #grafico svg,
+    #graficoUmidade svg {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+    }
+
+    #cabecalho {
+      position: relative;
+
+    }
+
+    .acessibilidade {
+      position: absolute;
+      bottom: 2%;
+      right: 9%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      font-size: 21px;
+    }
+
+    #acessibilidade span {
+      font-weight: bold;
+    }
+
+    #aumentarFonte,
+    #diminuirFonte {
+      margin-left: 10px;
+      border: none;
+      background-color: #0079C2;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script>
+    $(function () {
+      $("#tabelaAnimais input").keyup(function () {
+        var index = $(this).parent().index();
+        var nth = "#tabelaAnimais td:nth-child(" + (index + 1).toString() + ")";
+        var valor = $(this).val().toUpperCase();
+        $("#tabelaAnimais tbody tr").show();
+        $(nth).each(function () {
+          var texto = $(this).text().toUpperCase();
+          if (texto.substring(0, valor.length) !== valor) {
+            $(this).parent().hide();
+          }
+        });
+      });
+
+      $("#tabelaAnimais input").blur(function () {
+        $(this).val("");
+      });
+    });
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1 id="cabecalho">
+    <img src="/images/temp1.png" width="80px" height="80px">
+    Monitoramento Ambiental<br><br>
+    em Compost Barn
+    <img src="/images/temp2_frio.png" width="80px" height="80px">
+    <div class="acessibilidade">
+      <h9>Acessibilidade</h9>
+      <button id="aumentarFonte">A+</button>
+      <button id="diminuirFonte">A-</button>
+    </div>
+  </h1>
+
+  <h3>
+    <div id="area-menu">
+      <p id="meuTexto"><a href="index.html">Temperatura e Umidade em Tempo Real (IOT)</a>
+
+        <a href="listaAnimais.html">Análise de dados IOT</a>
+      </p>
+    </div>
+  </h3>
+
+  </div>
+
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+      async>
+        {
+          "symbols": [
+            {
+              "proName": "BINANCE:BTCBRL",
+              "title": "Bitcoin"
+            },
+            {
+              "proName": "BINANCE:ETHBRL",
+              "title": "Ethereum"
+            },
+            {
+              "proName": "EIGHTCAP:USDBRL",
+              "title": "Dollar"
+            },
+            {
+              "proName": "FX_IDC:EURBRL",
+              "title": "Euro"
+            },
+            {
+              "proName": "FX_IDC:GBPBRL",
+              "title": "Libra"
+            },
+            {
+              "proName": "FX_IDC:ARSBRL",
+              "title": "Peso Argentino"
+            },
+            {
+              "proName": "OANDA:XAUUSD",
+              "title": "Ouro"
+            }
+          ],
+            "colorTheme": "light",
+              "locale": "br",
+                "largeChartUrl": "",
+                  "isTransparent": false,
+                    "showSymbolLogo": true,
+                      "displayMode": "adaptive"
+        }
+      </script>
+  </div>
+  <!-- TradingView Widget END -->
+
+
+
+
+  <div class="container">
+    <div class="coluna-esquerda">
+      <div class="div1">
+
+        <div id="grafico">
+          <p>Temperatura</p>
+        </div>
+      </div>
+      <div class="div2">
+        <div id="graficoUmidade">
+          <p>Umidade</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="coluna-direita">
+      <div class="controle-duplo">
+        <div class="controle-individual">
+          <p>Sistema de Ventilação</p>
+          <button id="botaoVentilacao" class="desligado">DESLIGADO</button>
+        </div>
+        <div class="controle-individual">
+          <p>Sistema de Iluminação</p>
+          <button id="botaoLampada" class="desligado">DESLIGADO</button>
+        </div>
+      </div>
+      <div id=titulo>Condição do Galpão
+        <div class="quadro-alerta" id="quadroAlerta">
+          <div class="status-texto" id="textoStatus"></div>
+          <div class="status-detalhes" id="detalhesStatus"></div>
+        </div>
+
+
+        <div class="legenda-status">
+          <div class="item-legenda">
+            <div class="cor-legenda ideal"></div>
+            <span>Boa</span>
+          </div>
+          <div class="item-legenda">
+            <div class="cor-legenda razoavel"></div>
+            <span>Moderada</span>
+          </div>
+          <div class="item-legenda">
+            <div class="cor-legenda critica"></div>
+            <span>Ruim</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <script>
+
+      //Aumentar o tamanho da fonte (acessibilidade)
+      const aumentarBotao = document.getElementById('aumentarFonte');
+      const diminuirBotao = document.getElementById('diminuirFonte');
+      const meuTexto = document.getElementById('meuTexto');
+      aumentarBotao.addEventListener('click', function () {
+        const tamanhoAtual = window.getComputedStyle(meuTexto).fontSize; const novoTamanho = parseFloat(tamanhoAtual) + 2;
+        // Aumenta 2 pixels 
+        meuTexto.style.fontSize = novoTamanho + 'px';
+      }); diminuirBotao.addEventListener('click', function () {
+        const tamanhoAtual = window.getComputedStyle(meuTexto).fontSize;
+        const novoTamanho = parseFloat(tamanhoAtual) - 2;
+        // Diminui 2 pixels 
+        meuTexto.style.fontSize = novoTamanho + 'px';
+      });
+      /*btnConsultar.addEventListener("click", ()=> {
+      const dataConsulta = document.querySelector("#dataConsulta").value;*/
+
+
+      function alternarEstado(botao, nome) {
+        const ligado = botao.classList.contains('ligado');
+        botao.classList.toggle('ligado');
+        botao.classList.toggle('desligado');
+        botao.textContent = ligado ? 'DESLIGADO' : `LIGADO`;
+      }
+
+      document.getElementById('botaoVentilacao').addEventListener('click', function () {
+        alternarEstado(this, 'Ventilação');
+      });
+
+      document.getElementById('botaoLampada').addEventListener('click', function () {
+        alternarEstado(this, 'Iluminação');
+      });
+
+    </script>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+      // Chama a função atualizarTemperatura a cada 10 minutos
+      setInterval(atualizarTemperatura, 10 * 60 * 1000);
+
+      function atualizarTemperatura() {
+        const apiKey = '9e5e8c6d3873cae24b71872aec659579';
+        const cidade = 'Guaratinguetá';
+        const LIMITE_TEMPERATURA = 25.0;
+        const LIMITE_UMIDADE = 50.0;
+        const emailUsuario = 'temperatura.compostbarn@gmail.com';
+
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&appid=' + apiKey)
+          .then(response => response.json())
+          .then(data => {
+            const umidade = data.main.humidity;
+            const temperaturaK = data.main.temp;
+            const temperaturaC = temperaturaK - 273.15;
+            const temperaturaCorrigida = temperaturaC - 2.5;
+
+            console.log("Temperatura atual: " + temperaturaCorrigida.toFixed(1) + " °C");
+            console.log("Umidade atual: " + umidade.toFixed(1) + " %");
+
+            atualizarGrafico(temperaturaCorrigida);
+            atualizarGraficoUmidade(umidade);
+
+            const quadro = document.getElementById('quadroAlerta');
+            const textoStatus = document.getElementById('textoStatus');
+            const detalhesStatus = document.getElementById('detalhesStatus');
+
+            // Remove classes anteriores
+            quadro.classList.remove('status-ideal', 'status-razoavel', 'status-critica', 'piscar');
+
+            // Lógica de condição
+            if (temperaturaCorrigida < LIMITE_TEMPERATURA && umidade >= LIMITE_UMIDADE) {
+              quadro.classList.add('status-ideal');
+              textoStatus.textContent = 'BOA';
+              detalhesStatus.textContent = 'Temperatura e umidade dentro dos padrões';
+
+            } else if (temperaturaCorrigida > LIMITE_TEMPERATURA && temperaturaCorrigida < 32 && umidade < LIMITE_UMIDADE && umidade > 30) {
+              quadro.classList.add('status-razoavel');
+              textoStatus.textContent = 'MODERADA';
+              detalhesStatus.textContent = 'AVISO: Temperatura elevada e umidade baixa';
+            }
+            else if (temperaturaCorrigida > LIMITE_TEMPERATURA && temperaturaCorrigida < 32 && umidade > LIMITE_UMIDADE) {
+              quadro.classList.add('status-razoavel');
+              textoStatus.textContent = 'MODERADA';
+              detalhesStatus.textContent = 'AVISO: Temperatura elevada';
+
+            } else if (temperaturaCorrigida <= LIMITE_TEMPERATURA && umidade < LIMITE_UMIDADE && umidade > 30) {
+              quadro.classList.add('status-razoavel');
+              textoStatus.textContent = 'MODERADA';
+              detalhesStatus.textContent = 'AVISO: Umidade baixa';
+            }
+            else if (temperaturaCorrigida >= 32 && umidade > LIMITE_UMIDADE) {
+              quadro.classList.add('status-critica', 'piscar');
+              textoStatus.textContent = 'RUIM';
+              detalhesStatus.textContent = 'ALERTA: Temperatura muito elevada!';
+            }
+            else if (temperaturaCorrigida <= LIMITE_TEMPERATURA && umidade < 30) {
+              quadro.classList.add('status-critica', 'piscar');
+              textoStatus.textContent = 'RUIM';
+              detalhesStatus.textContent = 'ALERTA: Umidade muito baixa!';
+            }
+            else {
+              quadro.classList.add('status-critica', 'piscar');
+              textoStatus.textContent = 'RUIM';
+              detalhesStatus.textContent = 'ALERTA: Temperatura e umidade fora dos limites!';
+            }
+
+
+
+
+            if (temperaturaCorrigida >= LIMITE_TEMPERATURA) {
+              fetch('animal/enviar-alerta', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  email: emailUsuario,
+                  cidade: cidade,
+                  tipo: 'temperatura',
+                  valor: temperaturaCorrigida.toFixed(1)
+                })
+              })
+                .then(response => {
+                  if (response.ok) {
+                    console.log('🚨 Alerta de temperatura enviado com sucesso!');
+                  } else {
+                    console.error('❌ Falha ao enviar alerta de temperatura.');
+                  }
+                })
+                .catch(error => {
+                  console.error('Erro ao enviar alerta de temperatura:', error);
+                });
+            }
+
+            if (umidade < LIMITE_UMIDADE) {
+              fetch('animal/enviar-alerta', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  email: emailUsuario,
+                  cidade: cidade,
+                  tipo: 'umidade',
+                  valor: umidade.toFixed(1)
+                })
+              })
+                .then(response => {
+                  if (response.ok) {
+                    console.log('💧 Alerta de umidade enviado com sucesso!');
+                  } else {
+                    console.error('❌ Falha ao enviar alerta de umidade.');
+                  }
+                })
+                .catch(error => {
+                  console.error('Erro ao enviar alerta de umidade:', error);
+                });
+            }
+          })
+          .catch(error => console.error('Erro ao buscar temperatura:', error));
+      }
+
+
+      /*document.getElementById('temperatura').addEventListener('click', atualizarTemperatura);*/
+      document.addEventListener('DOMContentLoaded', (event) => {
+        atualizarTemperatura();
+      });
+
+
+      // Cria um gráfico de meio círculo com D3.js
+      var svg = d3.select("#grafico")
+        .append("svg")
+        .attr("viewBox", "0 0 320 200")
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .style("width", "100%")
+        .style("height", "auto");
+
+      var g = svg.append("g")
+        .attr("transform", "translate(160,130)");
+
+      var arc = d3.arc()
+        .innerRadius(116)
+        .outerRadius(120)
+        .startAngle(-Math.PI / 2)
+        .endAngle(Math.PI / 2);
+
+      g.append("path")
+        .attr("d", arc)
+        .attr("fill", "#ddd");
+      // Adiciona marcas de escala
+      g.append("text")
+        .attr("transform", "translate(-130,20)")
+        .text("0°C");
+
+      g.append("text")
+        .attr("transform", "translate(105,20)")
+        .text("50°C");
+
+      // Adiciona um texto para exibir a temperatura atual
+      var temperaturaTexto = g.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "-50") // Move o texto para cima
+        .style("font-size", "24px"); // Aumenta o tamanho do texto
+
+
+
+      function atualizarGrafico(temperaturaCorrigida) {
+        var percent = temperaturaCorrigida / 50; // Converte a temperatura para uma porcentagem
+        var angle = percent * Math.PI; // Converte a porcentagem para um ângulo
+
+        var arcAtual = d3.arc()
+          .innerRadius(110)
+          .outerRadius(126)
+          .startAngle(-Math.PI / 2)
+          .endAngle(angle - Math.PI / 2)
+          .cornerRadius(20); // Adiciona um raio nas extremidades do arco
+
+        g.append("path")
+          .attr("d", arcAtual)
+          .attr("fill", "#20B2AA");
+
+        // Atualiza o texto com a temperatura atual
+        temperaturaTexto.text((temperaturaCorrigida.toFixed(1)) + "°C");
+      }
+
+      // Cria um gráfico de meio círculo com D3.js
+      var svg1 = d3.select("#graficoUmidade")
+        .append("svg")
+        .attr("viewBox", "0 0 320 200")
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .style("width", "100%")
+        .style("height", "auto");
+
+      var g1 = svg1.append("g")
+        .attr("transform", "translate(160,130)");
+
+      var arc = d3.arc()
+        .innerRadius(116)
+        .outerRadius(120)
+        .startAngle(-Math.PI / 2)
+        .endAngle(Math.PI / 2);
+
+      g1.append("path")
+        .attr("d", arc)
+        .attr("fill", "#ddd");
+      // Adiciona marcas de escala
+      g1.append("text")
+        .attr("transform", "translate(-130,20)")
+        .text("0");
+
+      g1.append("text")
+        .attr("transform", "translate(105,20)")
+        .text("100%");
+
+      // Adiciona um texto para exibir a temperatura atual
+      var umidadeTexto2 = g1.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "-50") // Move o texto para cima
+        .style("font-size", "24px"); // Aumenta o tamanho do texto
+
+      function atualizarGraficoUmidade(umidade) {
+        var percent = umidade / 100; // Converte a umidade para uma porcentagem
+        var angle = percent * Math.PI; // Converte a porcentagem para um ângulo
+
+        var arcAtual = d3.arc()
+          .innerRadius(110)
+          .outerRadius(126)
+          .startAngle(-Math.PI / 2)
+          .endAngle(angle - Math.PI / 2)
+          .cornerRadius(20); // Adiciona um raio nas extremidades do arco
+
+        g1.append("path")
+          .attr("d", arcAtual)
+          .attr("fill", "#20B2AA");
+
+        // Atualiza o texto com a temperatura atual
+        umidadeTexto2.text(((umidade).toFixed(1)) + "%");
+      }
+
+
+
+
+
+      /*var temperaturaC; // A temperatura em Celsius
+  
+      // Atualiza o gráfico com a temperatura atual
+      function atualizarGrafico(temperaturaC) {
+          var percent = temperaturaC / 50; // Converte a temperatura para uma porcentagem
+          var angle = percent * Math.PI; // Converte a porcentagem para um ângulo
+  
+          var arcAtual = d3.arc()
+              .innerRadius(100)
+              .outerRadius(150)
+              .startAngle(-Math.PI / 2)
+              .endAngle(angle - Math.PI / 2);
+  
+          g.append("path")
+              .attr("d", arcAtual)
+              .attr("fill", "orange");
+      }
+  
+      // Chama a função para atualizar o gráfico
+      atualizarGrafico(temperaturaC);*/
+
+
+    </script>
