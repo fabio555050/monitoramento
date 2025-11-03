@@ -903,6 +903,7 @@
             const temperaturaC = temperaturaK - 273.15;
             const temperaturaCorrigida = temperaturaC - 2.5;
 
+
             console.log("Temperatura atual: " + temperaturaCorrigida.toFixed(1) + " °C");
             console.log("Umidade atual: " + umidade.toFixed(1) + " %");
 
@@ -917,7 +918,7 @@
             quadro.classList.remove('status-ideal', 'status-razoavel', 'status-critica', 'piscar');
 
             // Lógica de condição
-            if (temperaturaCorrigida < LIMITE_TEMPERATURA && umidade >= LIMITE_UMIDADE) {
+            if (temperaturaCorrigida < LIMITE_TEMPERATURA && umidade >= LIMITE_UMIDADE && umidade <= 70) {
               quadro.classList.add('status-ideal');
               textoStatus.textContent = 'BOA';
               detalhesStatus.textContent = 'Temperatura e umidade dentro dos padrões';
@@ -927,7 +928,12 @@
               textoStatus.textContent = 'MODERADA';
               detalhesStatus.textContent = 'AVISO: Temperatura elevada e umidade baixa';
             }
-            else if (temperaturaCorrigida > LIMITE_TEMPERATURA && temperaturaCorrigida < 32 && umidade > LIMITE_UMIDADE) {
+            else if (temperaturaCorrigida > LIMITE_TEMPERATURA && temperaturaCorrigida < 32 && umidade > 70 && umidade <= 85) {
+              quadro.classList.add('status-razoavel');
+              textoStatus.textContent = 'MODERADA';
+              detalhesStatus.textContent = 'AVISO: Temperatura elevada e umidade alta';
+            }
+            else if (temperaturaCorrigida > LIMITE_TEMPERATURA && temperaturaCorrigida < 32 && umidade >= LIMITE_UMIDADE && umidade <= 70) {
               quadro.classList.add('status-razoavel');
               textoStatus.textContent = 'MODERADA';
               detalhesStatus.textContent = 'AVISO: Temperatura elevada';
@@ -937,20 +943,40 @@
               textoStatus.textContent = 'MODERADA';
               detalhesStatus.textContent = 'AVISO: Umidade baixa';
             }
-            else if (temperaturaCorrigida >= 32 && umidade > LIMITE_UMIDADE) {
+            else if (temperaturaCorrigida <= LIMITE_TEMPERATURA && umidade > 70 && umidade <= 85) {
+              quadro.classList.add('status-razoavel');
+              textoStatus.textContent = 'MODERADA';
+              detalhesStatus.textContent = 'AVISO: Umidade alta';
+            }
+            else if (temperaturaCorrigida >= 32 && umidade >= LIMITE_UMIDADE && umidade <= 70) {
               quadro.classList.add('status-critica', 'piscar');
               textoStatus.textContent = 'RUIM';
               detalhesStatus.textContent = 'ALERTA: Temperatura muito elevada!';
+            }
+            else if (temperaturaCorrigida >= 32 && umidade > 70 && umidade <= 85) {
+              quadro.classList.add('status-critica', 'piscar');
+              textoStatus.textContent = 'RUIM';
+              detalhesStatus.textContent = 'ALERTA: Temperatura muito elevada e umidade alta!';
             }
             else if (temperaturaCorrigida <= LIMITE_TEMPERATURA && umidade < 30) {
               quadro.classList.add('status-critica', 'piscar');
               textoStatus.textContent = 'RUIM';
               detalhesStatus.textContent = 'ALERTA: Umidade muito baixa!';
             }
+            else if (temperaturaCorrigida > LIMITE_TEMPERATURA && temperaturaCorrigida <= 32 && umidade < 30) {
+              quadro.classList.add('status-critica', 'piscar');
+              textoStatus.textContent = 'RUIM';
+              detalhesStatus.textContent = 'ALERTA: Umidade muito baixa e temperatura alta';
+            }
+            else if (temperaturaCorrigida <= LIMITE_TEMPERATURA && umidade > 85) {
+              quadro.classList.add('status-critica', 'piscar');
+              textoStatus.textContent = 'RUIM';
+              detalhesStatus.textContent = 'ALERTA: Umidade muito alta!';
+            }
             else {
               quadro.classList.add('status-critica', 'piscar');
               textoStatus.textContent = 'RUIM';
-              detalhesStatus.textContent = 'ALERTA: Temperatura e umidade fora dos limites!';
+              detalhesStatus.textContent = 'ALERTA: Temperatura e umidade muito além dos limites!';
             }
 
 
